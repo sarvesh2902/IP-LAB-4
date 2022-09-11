@@ -33,5 +33,15 @@ initial-scale=1.0"
 
         const person2 = new Person("Manav Tanna", "D15A", 67);
         console.log("Person 2: ", person2);
+        
+        // We can't use arrow functions to create objects
+        function Student(name, class_name, roll_no) {
+            this.name = name;
+            this.class_name = class_name;
+            this.roll_no = roll_no;
+        }
+
+        const person3 = new Student("Upendra Falak", "D15A", 15);
+        console.log(person3);
     </script>
 </html>
