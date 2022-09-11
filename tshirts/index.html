@@ -1,216 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width,
-initial-scale=1.0"
-    />
-    <title>HTML FORM</title>
-    <script
-      src="https://kit.fontawesome.com/f635a28c1e.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- <link rel="stylesheet" href="style2.css" /> -->
-  </head>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap");
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: "Poppins", sans-serif;
-      margin: 0.7rem;
-    }
-    .cart {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem;
-      margin-left: 10rem;
-    }
-    form h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    input,
-    select {
-      margin-bottom: 1rem;
-    }
-    .mt-1 {
-      margin-top: 1rem;
-    }
-    .options {
-      margin-top: 1rem;
-    }
-    .options label {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      padding: 0.4rem 0.8rem;
-      color: white;
-      background: #333;
-      border: none;
-      border-radius: 7px;
-      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: all 750ms ease-in-out;
-    }
-    .btn:hover {
-      transform: scale(1.05);
-      background-color: #2dbdff;
-    }
-    .preview {
-      display: flex;
-      width: 400px;
-      margin-right: 200px;
-      background: #f4f4f4;
-      justify-content: center;
-      align-items: center;
-    }
-    .preview img {
-      height: 80%;
-      width: 80%;
-    }
-    @media (max-width: 1100px) {
-      .cart {
-        margin-left: 3rem;
-      }
-      .preview {
-        margin-right: 3rem;
-      }
-    }
-    @media (max-width: 880px) {
-      body {
-        margin: 0;
-      }
-      form h3 {
-        text-align: center;
-      }
-      .cart {
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0;
-      }
-      .form-data {
-        margin-top: 2rem;
-      }
-      .preview {
-        height: 400px;
-        width: 350px;
-        margin-right: 3rem;
-      }
-    }
-  </style>
-  <body>
-    <form
-      name="myForm"
-      id="shirt_cart"
-      onsubmit="return validateForm()"
-      enctype="multipart/form-data"
-      method="put"
-    >
-      <h3>Your Cart</h3>
-      <div class="cart">
-        <div class="form-data">
-          <label for="tagline">Enter Tagline:</label>
-          <input required type="text" name="tagline" id="tagline" />
-          <br />
-          <label for="color">Choose Color:</label>
-          <input type="radio" id="red" name="color" value="Red" />
-          <label for="red">Red</label>
-          <input type="radio" id="white" name="color" value="White" />
-          <label for="white">White</label>
-          <input type="radio" id="blue" name="color" value="blue" />
-          <label for="blue">Blue</label> <br />
-          <label for="size">Select Size:</label>
-          <select required id="size" name="size">
-            <option value="25">25</option>
-            <option value="30">30</option>
-            <option value="35">35</option>
-            <option value="40">40</option>
-          </select>
-          <br />
-          <label for="quantity">Quantity: </label>
-          <select required id="quantity" name="quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-          <br />
-          <label for="price">Total Order Price: <strong>25.49$</strong></label>
-          <br />
-          <div class="mt-1"></div>
-          <label for="payment_options">Payment Options:</label>
-          <br />
-          <div class="options">
-            <input
-              type="radio"
-              id="cc"
-              name="payment"
-              value="Credit/Debit Card"
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="https://res.cloudinary.com/sarveshp46/image/upload/c_scale,w_542/v1658641147/IPLab/SarveshPatil_Tech-modified-min_mr8ou4.png"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Customize Your T-Shirt</title>
+        <style>
+            * {
+                font-family: "Poppins", sans-serif;
+            }
+
+            .title {
+                font-size: x-large;
+                font-weight: 700;
+            }
+
+            .content {
+                display: flex;
+                margin: 0 7%;
+            }
+
+            .content > * {
+                flex: 1;
+            }
+
+            .content > img {
+                width: 100px;
+                height: 800px;
+            }
+
+            #orderBtn {
+                position: relative;
+                background-color: black;
+                border: none;
+                padding: 20px;
+                width: 200px;
+                text-align: center;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+                text-decoration: none;
+                overflow: hidden;
+                cursor: pointer;
+                color: white;
+            }
+
+            #orderBtn:hover {
+                background: #fff;
+                box-shadow: 0px 2px 10px 5px #97b1bf;
+                color: #000;
+            }
+
+            #orderBtn:after {
+                content: "";
+                background: black;
+                display: block;
+                position: absolute;
+                padding-top: 300%;
+                padding-left: 350%;
+                margin-left: -20px !important;
+                margin-top: -120%;
+                opacity: 0;
+                transition: all 0.8s;
+            }
+
+            #orderBtn:active:after {
+                padding: 0;
+                margin: 0;
+                opacity: 1;
+                transition: 0s;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="title">ORDER DETAILS</p>
+        <section class="content">
+            <form
+                name="myForm"
+                id="shirt_cart"
+                onsubmit="return validateForm()"
+                enctype="multipart/form-data"
+                method="put"
+            >
+                <div>
+                    <label for="text-tshirt"
+                        >Enter text to print on the t-shirt</label
+                    >
+                    <input
+                        type="text"
+                        id="text-tshirt"
+                        name="text-tshirt"
+                        required
+                    />
+                </div>
+                <p>Choose Color</p>
+                <div>
+                    <input
+                        checked
+                        type="radio"
+                        name="color"
+                        id="black"
+                        value="Black"
+                    />
+                    <label for="black"> Black </label>
+                </div>
+                <div>
+                    <input type="radio" name="color" id="blue" value="Blue" />
+                    <label for="blue"> Blue </label>
+                </div>
+                <div>
+                    <input type="radio" name="color" id="red" value="Red" />
+                    <label for="red"> Red </label>
+                </div>
+                <div>
+                    <input type="radio" name="color" id="white" value="White" />
+                    <label for="white"> White </label>
+                </div>
+                <br />
+                <p>Choose size for your t-shirt</p>
+                <select
+                    required
+                    id="size"
+                    name="size"
+                    aria-label="Default select example"
+                >
+                    <option selected>Select Size</option>
+                    <option value="xs">XS</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                    <option value="xxl">XXL</option>
+                </select>
+                <br />
+                <p>Choose quantity</p>
+                <select
+                    required
+                    id="qty"
+                    name="qty"
+                    aria-label="Default select example"
+                >
+                    <option selected>Select Quantity</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <article>
+                    <br />
+                    <textarea
+                        required
+                        id="details"
+                        name="details"
+                        rows="5"
+                        cols="33"
+                        placeholder="Add additional details"
+                    ></textarea>
+                </article>
+                <section>
+                    <label for="date">Select Delivery Date:</label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        value="2022-07-22"
+                        min="2022-08-01"
+                        max="2022-12-31"
+                        required
+                    />
+                </section>
+                <br />
+                <p><b>Total:</b> $35.99</p>
+                <p>Choose Payment Method</p>
+                <div>
+                    <input
+                        checked
+                        type="radio"
+                        name="payment"
+                        id="card"
+                        value="Card"
+                    />
+                    <label for="card"> Credit/Debit Card </label>
+                </div>
+                <div>
+                    <input type="radio" name="payment" id="upi" value="UPI" />
+                    <label for="upi"> UPI </label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        name="payment"
+                        id="wallet"
+                        value="Wallet"
+                    />
+                    <label for="wallet"> Pay using wallet </label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        name="payment"
+                        id="cod"
+                        value="Pay on Delivery"
+                    />
+                    <label for="cod"> Pay on delivery </label>
+                </div>
+                <section>
+                    <b>Enter Your Details Here:-</b><br /><br />
+                    <label for="fname">First name:-</label><br /><br />
+                    <input
+                        required
+                        type="text"
+                        id="fname"
+                        name="fname"
+                        placeholder="Enter Your first name here"
+                    /><br /><br />
+
+                    <label for="lname">Last Name</label><br /><br />
+                    <input
+                        required
+                        type="text"
+                        id="lname"
+                        name="lname"
+                        placeholder="Enter Your Surname here"
+                    /><br /><br />
+
+                    <label for="address">Address</label><br /><br />
+                    <textarea
+                        name="address"
+                        id="address"
+                        cols="20"
+                        required
+                        rows="3"
+                        maxlength="200"
+                        placeholder="Enter Your address here"
+                    ></textarea
+                    ><br /><br />
+
+                    <label for="Contact">Contact No:-</label><br /><br />
+                    <input
+                        type="tel"
+                        name="Contact"
+                        id="Contact"
+                        maxlength="10"
+                        required
+                        placeholder="Enter Your contact no. here"
+                    /><br /><br />
+
+                    <label for="email">Email:-</label><br /><br />
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        id="email"
+                        placeholder="Enter your Email Here"
+                    /><br /><br />
+                </section>
+
+                <button id="orderBtn" type="submit">Place Order</button>
+            </form>
+            <img
+                src="https://res.cloudinary.com/sarveshp46/image/upload/v1658666916/IPLab/thor_itrtb4.webp"
+                alt="t-shirt img"
+                width="250"
             />
-            <label for="cc">Credit/Debit Card</label> <br />
-            <input type="radio" id="upi" name="payment" value="UPI" />
-            <label for="upi">UPI</label> <br />
-            <input type="radio" id="crypto" name="payment" value="Crypto" />
-            <label for="crypto">Crypto-Wallet</label>
-          </div>
-          <label for="address">Address:</label>
-          <p>3224 Hinkle Lake Road Cambridge, MA - 02138</p>
-          <button type="submit" class="btn">Place Order</button>
-        </div>
-        <div class="preview">
-          <img
-            src="https://res.cloudinary.com/sarveshp46/image/upload/v1658666916/IPLab/thor_itrtb4.webp"
-            alt=""
-          />
-        </div>
-      </div>
-    </form>
-  </body>
-  <script>
-    function validateForm() {
-      // Part A
-      const values = [
-        document.forms["myForm"]["tagline"].value,
-        document.forms["myForm"]["color"].value,
-        document.forms["myForm"]["size"].value,
-        document.forms["myForm"]["payment"].value,
-      ];
-      const hasEmptyFields = Object.values(values).some(
-        (element) => element === ""
-      );
-      if (hasEmptyFields) {
-        alert("Please fill in all fields");
-        return;
-      }
-      // Part B
-      document.getElementById("tagline").value = "";
-      var ele = document.getElementsByName("color");
-      for (var i = 0; i < ele.length; i++) ele[i].checked = false;
-      var ele = document.getElementsByName("payment");
-      for (var i = 0; i < ele.length; i++) ele[i].checked = false;
-      const receipt_formatted = `Thank you for shopping!\nHere's your receipt:\nDate: ${new Date().toLocaleDateString(
-        "UK"
-      )}\nTagline: ${values[0]}\nColor: ${values[1]}\nSize: ${
-        values[2]
-      }\nPayment Method: ${values[3]}`;
-      alert(receipt_formatted);
-    }
-    const form = document.getElementById("shirt_cart");
-    form.addEventListener("submit", (event) => {
-      // stop form submission
-      event.preventDefault();
-    });
-  </script>
+        </section>
+    </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+    ></script>
+    <script>
+        function validateForm() {
+            // Part A
+            const values = [
+                document.forms["myForm"]["text-tshirt"].value,
+                document.forms["myForm"]["size"].value,
+                document.forms["myForm"]["qty"].value,
+                document.forms["myForm"]["details"].value,
+                document.forms["myForm"]["date"].value,
+                document.forms["myForm"]["fname"].value,
+                document.forms["myForm"]["lname"].value,
+                document.forms["myForm"]["address"].value,
+                document.forms["myForm"]["Contact"].value,
+                document.forms["myForm"]["email"].value,
+                document.forms["myForm"]["payment"].value,
+                document.forms["myForm"]["color"].value,
+            ];
+            const hasEmptyFields = Object.values(values).some(
+                (element) => element === ""
+            );
+            if (hasEmptyFields) {
+                alert("Please fill in all fields");
+                return;
+            }
+            // Part B
+            // document.getElementById("text-tshirt").value = "";
+            // var ele = document.getElementsByName("color");
+            // for (var i = 0; i < ele.length; i++) ele[i].checked = false;
+            // var ele = document.getElementsByName("payment");
+            // for (var i = 0; i < ele.length; i++) ele[i].checked = false;
+
+            const receipt_formatted = `Thank you for shopping!
+Here's your receipt:
+Date: ${new Date().toLocaleDateString("UK")}
+Tagline: ${values[0]}
+Size: ${values[1]}
+Quantity: ${values[2]}
+Details: ${values[3]}
+Date: ${values[4]}
+First Name: ${values[5]}
+Last Name: ${values[6]}
+Address: ${values[7]}
+Contact: ${values[8]}
+Email: ${values[9]}
+Payment Method: ${values[10]}
+Color: ${values[11]}`;
+            alert(receipt_formatted);
+        }
+        const form = document.getElementById("shirt_cart");
+        form.addEventListener("submit", (event) => {
+            // stop form submission
+            event.preventDefault();
+        });
+    </script>
 </html>
