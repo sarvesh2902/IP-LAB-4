@@ -45,13 +45,22 @@ initial-scale=1.0"
         console.log("Student: ", student);
 
         // Generating an Exception
-        const checkError = () => {
-            const value = document.getElementById("error_checking").value;
+//         const checkError = () => {
+//             const value = document.getElementById("error_checking").value;
+//             console.log(value);
+//             if (!value || value === "0") {
+//                 throw new Error("Invalid Input ");
+//             } else {
+//                 console.log("Valid");
+//             }
+//         };
+        const errorCheck = () => {
+            const value = document.getElementById("checkError").value;
             console.log(value);
-            if (!value || value === "0") {
-                throw new Error("Invalid Input ");
+            if (value > 0) {
+                console.log("Valid Roll number");
             } else {
-                console.log("Valid");
+                throw new Error("Invalid roll number");
             }
         };
     </script>
